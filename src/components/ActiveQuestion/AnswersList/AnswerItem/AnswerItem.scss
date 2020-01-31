@@ -1,0 +1,16 @@
+.AnswerItem {
+  margin: 10px auto;
+  padding: 10px;
+
+  border: 1px solid #f0efef;
+  border-radius: 20px;
+
+  color: #f0efef;
+
+  cursor: pointer;
+
+  transition: background-color 0.4s;
+  &:hover {
+    background-color: lighten($color: #192965, $amount: 25);
+  }
+}

@@ -1,16 +1,13 @@
 import React from 'react'
 import Button from '../Button/Button'
+import AnswersList from './AnswersList/AnswersList'
+import classes from './ActiveQuestion.scss'
 
 export default function ActiveQuestion() {
   return (
     <div>
-      <div>12 + 3 = ?</div>
-      <ul>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>15</li>
-      </ul>
+      <div className={classes.question}>12 + 3 = ?</div>
+      <AnswersList />
       <Button>Next</Button>
     </div>
   )

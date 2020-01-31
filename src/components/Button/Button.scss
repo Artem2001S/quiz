@@ -1,0 +1,17 @@
+.Button {
+  padding: 10px 20px;
+  border: none;
+
+  background-color: #f0efef;
+  font-size: 20px;
+  font-weight: bold;
+  color: #192965;
+
+  outline: none;
+  cursor: pointer;
+
+  transition: background-color  0.4s;
+  &:hover {
+    background-color: darken($color: #f0efef, $amount: 15);
+  }
+}

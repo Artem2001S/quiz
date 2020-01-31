@@ -14,3 +14,7 @@
     background-color: lighten($color: #192965, $amount: 25);
   }
 }
+
+.active {
+  background-color: lighten($color: #192965, $amount: 15);
+}

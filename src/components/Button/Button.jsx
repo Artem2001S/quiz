@@ -1,10 +1,10 @@
 import React from 'react';
 import classes from './Button.scss';
 
-export default function Button(props) {
+export default function Button({ children }) {
   return (
     <button className={classes.Button}>
-      {props.children}
+      {children}
     </button>
-  )
+  );
 }

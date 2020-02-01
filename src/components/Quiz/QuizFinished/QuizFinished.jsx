@@ -1,5 +1,4 @@
 import React from 'react';
-import classes from './QuizFinished.scss'
 
 export default function QuizFinished({text}) {
   return (

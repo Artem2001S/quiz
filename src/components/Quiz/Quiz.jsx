@@ -63,6 +63,17 @@ export default class Quiz extends Component {
     this.checkFinished = () => {
       return this.state.currentQuestionIndex === this.state.questions.length - 1;
     }
+
+    this.restart = () => {
+      this.setState(() => {
+        return {
+          selectedAnswerId: null,
+          currentQuestionIndex: 0,
+          correctAnswersCount: 0,
+          isFinished: false,
+        }
+      });
+    }
   }
 
 
@@ -75,6 +86,7 @@ export default class Quiz extends Component {
           isFinished ?
             <>
               <QuizFinished text={`${correctAnswersCount}/${questions.length}`} />
+              <Button onClick={this.restart}>Try again</Button>
             </>
             :
             <ActiveQuestion

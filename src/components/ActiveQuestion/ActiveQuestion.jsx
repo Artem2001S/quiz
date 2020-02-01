@@ -3,16 +3,16 @@ import Button from '../Button/Button';
 import AnswersList from './AnswersList/AnswersList';
 import classes from './ActiveQuestion.scss';
 
-export default function ActiveQuestion({ question, selectedAnswerId, onAnswerClick }) {
+export default function ActiveQuestion({ question, selectedAnswerId, onAnswerClick, onNextClick }) {
   return (
     <div>
-      <div className={classes.question}>12 + 3 = ?</div>
+      <div className={classes.question}>{question.question}</div>
       <AnswersList
         answers={question.answers}
         selectedAnswerId={selectedAnswerId}
         onAnswerClick={onAnswerClick}
       />
-      <Button>Next</Button>
+      <Button onClick={onNextClick}>Next</Button>
     </div>
   );
 }

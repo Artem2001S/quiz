@@ -8,7 +8,7 @@ export default class Quiz extends Component {
 
     this.state = {
       selectedAnswerId: null,
-      currentQuestion: 0,
+      currentQuestionIndex: 0,
       correctAnswers: 0,
       isFinished: false,
       questions: [
@@ -19,7 +19,7 @@ export default class Quiz extends Component {
         },
         {
           question: '12 + 4 = ?',
-          answers: [{ id: 1, text: '15' }, { id: 2, text: '16' }, { id: 3, text: '17' }, { id: 4, text: '18' }],
+          answers: [{ id: 1, text: '25' }, { id: 2, text: '16' }, { id: 3, text: '17' }, { id: 4, text: '18' }],
           correctAnswerId: 2,
         },
       ],
@@ -30,18 +30,32 @@ export default class Quiz extends Component {
         selectedAnswerId: id,
       });
     };
+
+    this.showNextQuestion = () => {
+      if (this.checkFinished()) {
+        console.log('finished');
+      } else {
+        console.log('next');
+        this.setState({ currentQuestionIndex: this.state.currentQuestionIndex + 1 });
+      }
+    }
+
+    this.checkFinished = () => {
+      return this.state.currentQuestionIndex >= this.state.questions.length - 1;
+    }
   }
 
 
   render() {
-    const { questions, currentQuestion, selectedAnswerId } = this.state;
+    const { questions, currentQuestionIndex, selectedAnswerId } = this.state;
     return (
       <div className={classes.Quiz}>
         <h1>Quiz</h1>
         <ActiveQuestion
-          question={questions[currentQuestion]}
+          question={questions[currentQuestionIndex]}
           selectedAnswerId={selectedAnswerId}
           onAnswerClick={this.handleAnswerCLick}
+          onNextClick={this.showNextQuestion}
         />
       </div>
     );
